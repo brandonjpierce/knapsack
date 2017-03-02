@@ -7,6 +7,7 @@
   "main": "index.js",
   "devDependencies": {
     "knapsack-plugin-define-env": "^0.0.0",
+    "knapsack-plugin-friendly-errors": "^0.0.0",
     "knapsack-plugin-no-emit-errors": "^0.0.0",
     "knapsack-plugin-node-packages": "^0.0.0"
   }

@@ -1,0 +1,11 @@
+{
+  "name": "knapsack-plugin-friendly-errors",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "friendly-errors-webpack-plugin": "^1.6.1"
+  }
+}
