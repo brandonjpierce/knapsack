@@ -1,0 +1,11 @@
+{
+  "name": "knapsack-plugin-case-sensitive",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^1.1.4"
+  }
+}

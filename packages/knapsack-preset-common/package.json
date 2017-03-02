@@ -1,0 +1,12 @@
+{
+  "name": "knapsack-preset-common",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "knapsack-plugin-define-env": "^0.0.0",
+    "knapsack-plugin-node-packages": "^0.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "knapsack-preset-production",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "knapsack-plugin-hashed-modules": "^0.0.0",
+    "knapsack-plugin-uglify": "^0.0.0",
+    "knapsack-preset-common": "^0.0.0"
+  }
+}
