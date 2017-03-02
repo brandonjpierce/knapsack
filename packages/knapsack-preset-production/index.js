@@ -10,5 +10,11 @@ module.exports = merge.smart(
   {
     bail: true,
     devtool: 'source-map',
+    // Utilize long-term caching by adding content hashes
+    // (not compilation hashes) to compiled assets
+    output: {
+      filename: '[name].[chunkhash].js',
+      chunkFilename: '[name].[chunkhash].chunk.js',
+    },
   },
 );

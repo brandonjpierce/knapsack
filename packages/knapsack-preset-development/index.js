@@ -11,6 +11,11 @@ module.exports = merge.smart(
   missingModules,
   {
     devtool: 'cheap-module-source-map',
+    // Don't use hashes for better performance
+    output: {
+      filename: '[name].js',
+      chunkFilename: '[name].chunk.js',
+    },
     performance: {
       hints: false,
     },
