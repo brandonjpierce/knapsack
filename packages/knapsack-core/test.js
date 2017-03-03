@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const test = require('ava');
 const noop = require('lodash/noop');
 const knapsack = require('./index');

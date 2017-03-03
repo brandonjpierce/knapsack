@@ -10,8 +10,9 @@
     "start": "npm test -s"
   },
   "ava": {
+    "verbose": true,
     "files": [
-      "packages/**"
+      "packages/**/test.js"
     ]
   },
   "xo": {
