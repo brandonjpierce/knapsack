@@ -5,6 +5,13 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
+  "xo": false,
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2"
+  },
   "dependencies": {
     "knapsack-plugin-case-sensitive": "^0.0.0",
     "knapsack-plugin-missing-modules": "^0.0.0",

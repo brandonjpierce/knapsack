@@ -7,10 +7,7 @@
   "main": "index.js",
   "xo": false,
   "scripts": {
-    "test": "ava test.js"
-  },
-  "ava": {
-    "files": [ "test.js" ]
+    "test": "ava"
   },
   "devDependencies": {
     "ava": "^0.18.2",
