@@ -1,5 +1,13 @@
 {
+  "name": "knapsack",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
   "devDependencies": {
-    "lerna": "2.0.0-beta.38"
+    "lerna": "2.0.0-beta.38",
+    "lodash": "^4.17.4",
+    "webpack": "^2.2.1"
   }
 }
