@@ -5,7 +5,8 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "devDependencies": {
-    "case-sensitive-paths-webpack-plugin": "^1.1.4"
+  "dependencies": {
+    "case-sensitive-paths-webpack-plugin": "^1.1.4",
+    "webpack-merge": "^3.0.0"
   }
 }

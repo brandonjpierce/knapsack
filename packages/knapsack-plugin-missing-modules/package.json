@@ -5,7 +5,8 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "devDependencies": {
-    "react-dev-utils": "^0.5.1"
+  "dependencies": {
+    "react-dev-utils": "^0.5.1",
+    "webpack-merge": "^3.0.0"
   }
 }

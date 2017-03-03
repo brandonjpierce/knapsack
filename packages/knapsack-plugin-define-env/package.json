@@ -4,5 +4,9 @@
   "description": "",
   "repository": "",
   "license": "MIT",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "webpack-merge": "^3.0.0"
+  }
 }

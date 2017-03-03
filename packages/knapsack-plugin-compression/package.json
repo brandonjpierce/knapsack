@@ -5,7 +5,9 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "devDependencies": {
-    "compression-webpack-plugin": "^0.3.2"
+  "dependencies": {
+    "compression-webpack-plugin": "^0.3.2",
+    "lodash": "^4.17.4",
+    "webpack-merge": "^3.0.0"
   }
 }

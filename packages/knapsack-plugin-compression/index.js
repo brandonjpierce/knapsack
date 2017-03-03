@@ -1,5 +1,6 @@
+const merge = require('webpack-merge');
 const assign = require('lodash/assign');
-const CompressionPlugin = require('CompressionPlugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const defaults = {
   asset: '[path].gz[query]',
@@ -9,8 +10,9 @@ const defaults = {
   minRatio: 0.8,
 };
 
-module.exports = (opts) => {
-  plugins: [
-    new CompressionPlugin(assign({}, opts, defaults)),
-  ],
-};
+module.exports = (opts) => existing =>
+  merge.smart(existing, {
+    plugins: [
+      new CompressionPlugin(assign({}, opts, defaults)),
+    ],
+  });
