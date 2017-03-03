@@ -9,6 +9,11 @@
     "lint": "xo packages/**/*.js",
     "start": "npm run lint -s && lerna run test"
   },
+  "ava": {
+    "files": [
+      "packages/**"
+    ]
+  },
   "xo": {
     "space": true
   },

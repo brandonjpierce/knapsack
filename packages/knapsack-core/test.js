@@ -4,9 +4,7 @@ const knapsack = require('./index');
 
 const exampleConfig = {
   entry: 'foo.js',
-  plugins: [
-    noop,
-  ]
+  plugins: [noop]
 };
 
 test('knapsack-core accepts object', t => {

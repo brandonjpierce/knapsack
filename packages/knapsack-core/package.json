@@ -5,10 +5,13 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "test": "ava"
-  },
   "xo": false,
+  "scripts": {
+    "test": "ava test.js"
+  },
+  "ava": {
+    "files": [ "test.js" ]
+  },
   "devDependencies": {
     "ava": "^0.18.2",
     "lodash": "^4.17.4"
