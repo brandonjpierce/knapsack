@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const assign = require('lodash/assign');
 
 const defaults = {
   compress: {
@@ -23,6 +24,6 @@ module.exports = (opts) => {
       debug: false,
     }),
     // Minify our bundle(s)
-    new webpack.optimize.UglifyJsPlugin(opts || defaults),
+    new webpack.optimize.UglifyJsPlugin(assign({}, opts, defaults)),
   ],
 };
