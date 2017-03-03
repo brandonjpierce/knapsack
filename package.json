@@ -5,6 +5,10 @@
   "description": "",
   "repository": "",
   "license": "MIT",
+  "scripts": {
+    "lint": "xo packages/**/*.js",
+    "start": "npm run lint -s && lerna run test"
+  },
   "xo": {
     "space": true
   },
