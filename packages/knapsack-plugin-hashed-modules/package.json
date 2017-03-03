@@ -6,12 +6,6 @@
   "license": "MIT",
   "main": "index.js",
   "xo": false,
-  "scripts": {
-    "test": "ava"
-  },
-  "devDependencies": {
-    "ava": "^0.18.2"
-  },
   "dependencies": {
     "webpack-merge": "^3.0.0"
   }

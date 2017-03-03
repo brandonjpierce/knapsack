@@ -6,13 +6,6 @@
   "license": "MIT",
   "main": "index.js",
   "xo": false,
-  "scripts": {
-    "test": "ava"
-  },
-  "devDependencies": {
-    "ava": "^0.18.2",
-    "lodash": "^4.17.4"
-  },
   "dependencies": {
     "lodash": "^4.17.4"
   }
