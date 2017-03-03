@@ -1,12 +1,12 @@
+const assign = require('lodash/assign');
 const webpack = require('webpack');
-const env = process.env.NODE_ENV || 'development';
 
-module.exports = {
+module.exports = (opts) => {
   plugins: [
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }.
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
-    }),
+    new webpack.EnvironmentPlugin(assign({}, opts, {
+      NODE_ENV: 'development',
+    })),
   ],
 };

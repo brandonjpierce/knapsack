@@ -3,5 +3,8 @@
     "lerna": "2.0.0-beta.38",
     "webpack": "^2.2.1",
     "webpack-merge": "^3.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }
