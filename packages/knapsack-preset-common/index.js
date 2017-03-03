@@ -8,9 +8,9 @@ const friendlyErrors = require('knapsack-plugin-friendly-errors');
 module.exports = (opts) =>
   merge.smart(
     defineEnv(get(opts, 'define-env')),
-    nodePackages,
-    noEmitErrors,
-    friendlyErrors,
+    nodePackages(),
+    noEmitErrors(),
+    friendlyErrors(),
     {
       target: 'web',
       resolve: {
