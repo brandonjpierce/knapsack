@@ -6,6 +6,6 @@ module.exports = () => existing =>
     plugins: [
       // This plugin does not swallow errors. Instead, it just prevents
       // Webpack from printing out compile time stats to the console.
-      new webpack.NoEmitOnErrorsPlugin(),
-    ],
+      new webpack.NoEmitOnErrorsPlugin()
+    ]
   });

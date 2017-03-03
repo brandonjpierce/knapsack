@@ -7,12 +7,12 @@ const defaults = {
   algorithm: 'gzip',
   test: /\.js$|\.html$|\.css$/,
   threshold: 0,
-  minRatio: 0.8,
+  minRatio: 0.8
 };
 
-module.exports = (opts) => existing =>
+module.exports = opts => existing =>
   merge.smart(existing, {
     plugins: [
-      new CompressionPlugin(assign({}, opts, defaults)),
-    ],
+      new CompressionPlugin(assign({}, opts, defaults))
+    ]
   });

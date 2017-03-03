@@ -7,6 +7,6 @@ module.exports = () => existing =>
     node: {
       fs: 'empty',
       net: 'empty',
-      tls: 'empty',
-    },
+      tls: 'empty'
+    }
   });

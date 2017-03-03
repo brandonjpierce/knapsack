@@ -6,6 +6,9 @@
   "license": "MIT",
   "main": "index.js",
   "xo": false,
+  "peerDependencies": {
+    "webpack": "^2.2.1"
+  },
   "dependencies": {
     "webpack-merge": "^3.0.0"
   }

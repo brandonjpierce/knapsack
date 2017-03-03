@@ -11,19 +11,19 @@ module.exports = opts => existing => {
     defineEnv(get(opts, 'define-env')),
     nodePackages(),
     noEmitErrors(),
-    friendlyErrors(),
+    friendlyErrors()
   ])(existing);
 
   return merge.smart(plugins, {
     target: 'web',
     resolve: {
-      extensions: ['.js', '.json', '.jsx'],
+      extensions: ['.js', '.json', '.jsx']
     },
     module: {
       rules: [
         // Require developers to use import()
-        { parser: { requireEnsure: false } },
-      ],
-    },
+        {parser: {requireEnsure: false}}
+      ]
+    }
   });
 };

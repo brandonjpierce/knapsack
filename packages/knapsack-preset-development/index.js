@@ -11,7 +11,7 @@ module.exports = opts => existing => {
     commonPreset(opts),
     missingModules(get(opts, 'missing-modules')),
     namedModules(),
-    caseSensitive(),
+    caseSensitive()
   ])(existing);
 
   return merge.smart(plugins, {
@@ -23,11 +23,11 @@ module.exports = opts => existing => {
     // Don't use hashes for better performance
     output: {
       filename: '[name].js',
-      chunkFilename: '[name].chunk.js',
+      chunkFilename: '[name].chunk.js'
     },
     // We do not want to clutter console with these reports
     performance: {
-      hints: false,
-    },
+      hints: false
+    }
   });
 };

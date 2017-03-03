@@ -10,8 +10,8 @@ module.exports = opts => existing => {
   const plugins = flowRight([
     commonPreset(opts),
     uglify(get(opts, 'uglify')),
-    compression(get(opts, 'compression'))
-    hashedModules(),
+    compression(get(opts, 'compression')),
+    hashedModules()
   ])(existing);
 
   return merge.smart(plugins, {
@@ -22,7 +22,7 @@ module.exports = opts => existing => {
     // (not compilation hashes) to compiled assets
     output: {
       filename: '[name].[chunkhash].js',
-      chunkFilename: '[name].[chunkhash].chunk.js',
-    },
+      chunkFilename: '[name].[chunkhash].chunk.js'
+    }
   });
 };
