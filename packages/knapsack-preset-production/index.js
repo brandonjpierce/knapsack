@@ -8,8 +8,9 @@ module.exports = merge.smart(
   hashedModules,
   uglify,
   {
-    bail: true,
     devtool: 'source-map',
+    cache: false,
+    bail: true,
     // Utilize long-term caching by adding content hashes
     // (not compilation hashes) to compiled assets
     output: {
