@@ -1,12 +1,15 @@
+const get = require('lodash/get');
 const merge = require('webpack-merge');
 const commonPreset = require('knapsack-preset-common');
 const hashedModules = require('knapsack-plugin-hashed-modules');
 const uglify = require('knapsack-plugin-uglify');
+const compression = require('knapsack-plugin-compression');
 
 module.exports = (opts) =>
   merge.smart(
     commonPreset(opts),
-    uglify(opts),
+    uglify(get(opts, 'uglify')),
+    compression(get(opts, 'compression'))
     hashedModules(),
     {
       devtool: 'source-map',
