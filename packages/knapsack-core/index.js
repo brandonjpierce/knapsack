@@ -1,4 +1,3 @@
-const merge = require('webpack-merge');
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
 const flowRight = require('lodash/flowRight');
@@ -19,5 +18,6 @@ module.exports = (existingConfig = {}, plugins = []) => {
   // TODO parse package.json[knapsack]
   // TODO generate plugins array
   // TODO existingConfig checks
+
   return flowRight(plugins)(existingConfig);
 };
