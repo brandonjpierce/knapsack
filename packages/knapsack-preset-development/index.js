@@ -1,3 +1,4 @@
+const get = require('lodash/get');
 const merge = require('webpack-merge');
 const commonPreset = require('knapsack-preset-common');
 const namedModules = require('knapsack-plugin-named-modules');
@@ -7,7 +8,7 @@ const missingModules = require('knapsack-plugin-missing-modules');
 module.exports = (opts) =>
   merge.smart(
     commonPreset(opts),
-    missingModules(opts),
+    missingModules(get(opts, 'missing-modules')),
     namedModules(),
     caseSensitive(),
     {
