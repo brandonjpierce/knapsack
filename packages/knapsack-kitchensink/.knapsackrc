@@ -1,3 +1,4 @@
 {
+  "plugins": ["./knapsack-plugin-test"],
   "presets": ["development"]
 }

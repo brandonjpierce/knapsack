@@ -12,7 +12,7 @@ module.exports = opts => existing => {
     missingModules(get(opts, 'nodeModulesPath')),
     namedModules(),
     caseSensitive(),
-    {
+    () => ({
       devtool: get(opts, 'devtool', 'cheap-module-source-map'),
       bail: false,
       // In most cases this will be implicitly set to true but we set it
@@ -27,7 +27,7 @@ module.exports = opts => existing => {
       performance: {
         hints: false
       }
-    }
+    })
   ];
 
   return reduce(plugins, (acc, curr) =>

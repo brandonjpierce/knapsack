@@ -12,7 +12,7 @@ module.exports = opts => existing => {
     uglify(get(opts, 'uglify')),
     compression(get(opts, 'compression')),
     hashedModules(),
-    {
+    () => ({
       devtool: get(opts, 'devtool', 'source-map'),
       cache: false,
       bail: true,
@@ -22,7 +22,7 @@ module.exports = opts => existing => {
         filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].chunk.js'
       }
-    }
+    })
   ];
 
   return reduce(plugins, (acc, curr) =>

@@ -12,7 +12,7 @@ module.exports = opts => existing => {
     nodePackages(),
     noEmitErrors(),
     friendlyErrors(),
-    {
+    () => ({
       target: get(opts, 'target', 'web'),
       resolve: {
         extensions: get(opts, 'extensions', ['.js', '.json', '.jsx'])
@@ -23,7 +23,7 @@ module.exports = opts => existing => {
           {parser: {requireEnsure: false}}
         ]
       }
-    }
+    })
   ];
 
   return reduce(plugins, (acc, curr) =>
