@@ -4,11 +4,10 @@ const reduce = require('lodash/reduce');
 const compact = require('lodash/compact');
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
-const isFunction = require('lodash/isFunction');
 const config = require('./config');
 const resolve = require('./resolve');
 
-module.exports = (existingConfig = {}, cb) => {
+module.exports = (existingConfig = {}) => {
   let resolved = [];
   const opts = config.build();
 
@@ -40,15 +39,6 @@ module.exports = (existingConfig = {}, cb) => {
     merge.smart(acc, curr(existingConfig)),
     existingConfig
   );
-
-  if (cb) {
-    if (!isFunction(cb)) {
-      throw new Error('Callback must be a function');
-    }
-
-    // Make cb promise compatible via error first
-    cb(null, out);
-  }
 
   return out;
 };
