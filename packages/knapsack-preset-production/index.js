@@ -1,19 +1,20 @@
 const get = require('lodash/get');
 const merge = require('webpack-merge');
 const reduce = require('lodash/reduce');
+const uglify = require('knapsack-plugin-uglify');
+const devtool = require('knapsack-plugin-devtool');
+const compression = require('knapsack-plugin-compression');
 const commonPreset = require('knapsack-preset-common');
 const hashedModules = require('knapsack-plugin-hashed-modules');
-const uglify = require('knapsack-plugin-uglify');
-const compression = require('knapsack-plugin-compression');
 
 module.exports = opts => existing => {
   const plugins = [
     commonPreset(opts),
     uglify(get(opts, 'uglify')),
     compression(get(opts, 'compression')),
+    devtool(get(opts, 'devtool', 'source-map')),
     hashedModules(),
     () => ({
-      devtool: get(opts, 'devtool', 'source-map'),
       cache: false,
       bail: true,
       // Utilize long-term caching by adding content hashes

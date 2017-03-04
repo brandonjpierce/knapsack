@@ -8,6 +8,7 @@
   "xo": false,
   "dependencies": {
     "knapsack-plugin-case-sensitive": "^0.0.0",
+    "knapsack-plugin-devtool": "^0.0.0",
     "knapsack-plugin-missing-modules": "^0.0.0",
     "knapsack-plugin-named-modules": "^0.0.0",
     "knapsack-preset-common": "^0.0.0",

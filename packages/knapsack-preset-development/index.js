@@ -1,6 +1,7 @@
 const get = require('lodash/get');
 const merge = require('webpack-merge');
 const reduce = require('lodash/reduce');
+const devtool = require('knapsack-plugin-devtool');
 const commonPreset = require('knapsack-preset-common');
 const namedModules = require('knapsack-plugin-named-modules');
 const caseSensitive = require('knapsack-plugin-case-sensitive');
@@ -11,9 +12,9 @@ module.exports = opts => existing => {
     commonPreset(opts),
     missingModules(get(opts, 'nodeModulesPath')),
     namedModules(),
+    devtool(get(opts, 'devtool')),
     caseSensitive(),
     () => ({
-      devtool: get(opts, 'devtool', 'cheap-module-source-map'),
       bail: false,
       // In most cases this will be implicitly set to true but we set it
       // explicitly here just in case
