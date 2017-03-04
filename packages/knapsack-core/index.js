@@ -37,7 +37,7 @@ module.exports = (existingConfig = {}, cb) => {
   resolved = compact(resolved);
 
   const out = reduce(resolved, (acc, curr) =>
-    merge.smart(curr(acc)),
+    merge.smart(acc, curr(existingConfig)),
     existingConfig
   );
 
@@ -46,7 +46,8 @@ module.exports = (existingConfig = {}, cb) => {
       throw new Error('Callback must be a function');
     }
 
-    cb(out);
+    // Make cb promise compatible via error first
+    cb(null, out);
   }
 
   return out;

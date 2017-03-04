@@ -3,4 +3,4 @@ const knapsack = require('knapsack-core');
 
 const test = knapsack({});
 
-console.log(format(test));
+console.log('kitchen sink', format(test));
