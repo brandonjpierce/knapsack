@@ -6,9 +6,6 @@
   "license": "MIT",
   "main": "index.js",
   "xo": false,
-  "knapsack": {
-    "presets": ["production"]
-  },
   "dependencies": {
     "knapsack-core": "^0.0.0",
     "knapsack-plugin-define-env": "^0.0.0",
