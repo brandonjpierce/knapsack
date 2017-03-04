@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    "knapsack-plugin-case-sensitive"
+  ]
+}

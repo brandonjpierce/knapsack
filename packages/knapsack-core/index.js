@@ -1,3 +1,5 @@
+const concat = require('lodash/concat');
+const compact = require('lodash/compact');
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
 const flowRight = require('lodash/flowRight');
@@ -6,7 +8,7 @@ const config = require('./config');
 const resolve = require('./resolve');
 
 module.exports = (existingConfig = {}, cb) => {
-  const resolved = [];
+  let resolved = [];
   const opts = config.build();
 
   if (!isObject(existingConfig)) {
@@ -19,7 +21,7 @@ module.exports = (existingConfig = {}, cb) => {
       throw new Error('Presets must be an array');
     }
 
-    resolved.push(resolve.presets(opts.presets));
+    resolved = concat(resolved, resolve.presets(opts.presets));
   }
 
   if (opts.plugins) {
@@ -27,8 +29,11 @@ module.exports = (existingConfig = {}, cb) => {
       throw new Error('Plugins must be an array');
     }
 
-    resolved.push(resolve.plugins(opts.plugins));
+    resolved = concat(resolved, resolve.plugins(opts.plugins));
   }
+
+  // Clean out unresolved packages
+  resolved = compact(resolved);
 
   const out = flowRight(resolved)(existingConfig);
 
@@ -39,4 +44,6 @@ module.exports = (existingConfig = {}, cb) => {
 
     cb(out);
   }
+
+  return out;
 };

@@ -1,16 +1,25 @@
 /* eslint-disable import/no-dynamic-require */
 
+const path = require('path');
+const Module = require('module');
 const map = require('lodash/map');
 const reduce = require('lodash/reduce');
 const isArray = require('lodash/isArray');
 
+// Taken mostly from Babel...Papa Bless
 const resolve = location => {
-  // TODO support relative path presets
-  // TODO support scoped packages
+  const relative = process.cwd();
+  const filename = path.join(relative, '.knapsackrc');
+  const mod = new Module();
+
+  mod.id = filename;
+  mod.filename = filename;
+  mod.paths = Module._nodeModulePaths(relative);
+
   try {
-    return require(location);
+    const importPath = Module._resolveFilename(location, mod);
+    return require(importPath);
   } catch (err) {
-    console.log(err);
     return null;
   }
 };
@@ -39,7 +48,8 @@ exports.plugins = plugins =>
     }
 
     const names = possiblePluginNames(pgn);
-    return resolveFromNames(names)(options);
+    const resolved = resolveFromNames(names);
+    return resolved ? resolved(options) : resolved;
   });
 
 exports.presets = presets =>
@@ -52,5 +62,6 @@ exports.presets = presets =>
     }
 
     const names = possiblePresetNames(pre);
-    return resolveFromNames(names)(options);
+    const resolved = resolveFromNames(names);
+    return resolved ? resolved(options) : resolved;
   });

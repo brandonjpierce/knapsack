@@ -1,0 +1,25 @@
+{
+  "name": "knapsack-kitchensink",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "xo": false,
+  "dependencies": {
+    "knapsack-core": "^0.0.0",
+    "knapsack-plugin-define-env": "^0.0.0",
+    "knapsack-plugin-friendly-errors": "^0.0.0",
+    "knapsack-plugin-no-emit-errors": "^0.0.0",
+    "knapsack-plugin-node-packages": "^0.0.0",
+    "knapsack-plugin-case-sensitive": "^0.0.0",
+    "knapsack-plugin-missing-modules": "^0.0.0",
+    "knapsack-plugin-named-modules": "^0.0.0",
+    "knapsack-plugin-compression": "^0.0.0",
+    "knapsack-plugin-hashed-modules": "^0.0.0",
+    "knapsack-plugin-uglify": "^0.0.0",
+    "knapsack-preset-common": "^0.0.0",
+    "knapsack-preset-development": "^0.0.0",
+    "knapsack-preset-production": "^0.0.0"
+  }
+}
