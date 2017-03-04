@@ -7,6 +7,9 @@ const isObject = require('lodash/isObject');
 const config = require('./config');
 const resolve = require('./resolve');
 
+// TODO add multi config argument support?
+// TODO brainstorm more possible plugins / presets
+
 module.exports = (existingConfig = {}) => {
   let resolved = [];
   const opts = config.build();
