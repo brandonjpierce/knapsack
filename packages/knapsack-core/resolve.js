@@ -24,11 +24,13 @@ const resolve = location => {
   }
 };
 
+// Allow shortname for preset
 const possiblePresetNames = presetName => [
   `knapsack-preset-${presetName}`,
   presetName
 ];
 
+// Allow shortname for plugin
 const possiblePluginNames = pluginName => [
   `knapsack-plugin-${pluginName}`,
   pluginName
@@ -39,35 +41,39 @@ const resolveFromNames = names =>
     accum || resolve(curr), null);
 
 exports.plugins = plugins =>
-  map(plugins, plugin => {
-    let pgn = plugin;
+  map(plugins, obj => {
+    let plugin = obj;
     let options = {};
 
     if (isArray(plugin)) {
-      [pgn, options] = pgn;
+      if (plugin.length > 2) {
+        const extra = JSON.stringify(plugin.slice(2));
+        throw new Error(`Unexpected extra options ${extra} passed to plugin.`);
+      }
+
+      [plugin, options] = plugin;
     }
 
-    console.log('PLUGIN', pgn);
-    console.log('OPTIONS', options);
-
-    const names = possiblePluginNames(pgn);
+    const names = possiblePluginNames(plugin);
     const resolved = resolveFromNames(names);
     return resolved ? resolved(options) : resolved;
   });
 
 exports.presets = presets =>
-  map(presets, preset => {
-    let pre = preset;
+  map(presets, obj => {
+    let preset = obj;
     let options = {};
 
     if (isArray(preset)) {
-      [pre, options] = pre;
+      if (preset.length > 2) {
+        const extra = JSON.stringify(preset.slice(2));
+        throw new Error(`Unexpected extra options ${extra} passed to preset.`);
+      }
+
+      [preset, options] = preset;
     }
 
-    console.log('PRESET', pre);
-    console.log('OPTIONS', options);
-
-    const names = possiblePresetNames(pre);
+    const names = possiblePresetNames(preset);
     const resolved = resolveFromNames(names);
     return resolved ? resolved(options) : resolved;
   });
