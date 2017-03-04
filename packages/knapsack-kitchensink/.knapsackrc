@@ -1,5 +1,3 @@
 {
-  "plugins": [
-    "knapsack-plugin-case-sensitive"
-  ]
+  "presets": ["development"]
 }

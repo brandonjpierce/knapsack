@@ -21,5 +21,8 @@
     "knapsack-preset-common": "^0.0.0",
     "knapsack-preset-development": "^0.0.0",
     "knapsack-preset-production": "^0.0.0"
+  },
+  "devDependencies": {
+    "pretty-format": "^19.0.0"
   }
 }
