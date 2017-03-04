@@ -5,8 +5,5 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "xo": false,
-  "dependencies": {
-    "webpack-merge": "^3.0.0"
-  }
+  "xo": false
 }

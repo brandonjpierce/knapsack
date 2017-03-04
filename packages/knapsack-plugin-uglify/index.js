@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 
-const merge = require('webpack-merge');
 const assign = require('lodash/assign');
 const webpack = require('webpack');
 
@@ -19,15 +18,14 @@ const defaults = {
   sourceMap: true
 };
 
-module.exports = opts => existing =>
-  merge.smart(existing, {
-    plugins: [
-      // Set loaders to minify mode and remove debugging
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-      }),
-      // Minify our bundle(s)
-      new webpack.optimize.UglifyJsPlugin(assign({}, opts, defaults))
-    ]
-  });
+module.exports = opts => () => ({
+  plugins: [
+    // Set loaders to minify mode and remove debugging
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
+    // Minify our bundle(s)
+    new webpack.optimize.UglifyJsPlugin(assign({}, opts, defaults))
+  ]
+});

@@ -1,8 +1,9 @@
+const merge = require('webpack-merge');
 const concat = require('lodash/concat');
+const reduce = require('lodash/reduce');
 const compact = require('lodash/compact');
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
-const flowRight = require('lodash/flowRight');
 const isFunction = require('lodash/isFunction');
 const config = require('./config');
 const resolve = require('./resolve');
@@ -35,7 +36,10 @@ module.exports = (existingConfig = {}, cb) => {
   // Clean out unresolved packages
   resolved = compact(resolved);
 
-  const out = flowRight(resolved)(existingConfig);
+  const out = reduce(resolved, (acc, curr) =>
+    merge.smart(curr(acc)),
+    existingConfig
+  );
 
   if (cb) {
     if (!isFunction(cb)) {

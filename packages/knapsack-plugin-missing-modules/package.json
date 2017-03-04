@@ -7,7 +7,6 @@
   "main": "index.js",
   "xo": false,
   "dependencies": {
-    "react-dev-utils": "^0.5.1",
-    "webpack-merge": "^3.0.0"
+    "react-dev-utils": "^0.5.1"
   }
 }
