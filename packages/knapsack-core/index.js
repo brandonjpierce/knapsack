@@ -1,23 +1,42 @@
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
 const flowRight = require('lodash/flowRight');
+const isFunction = require('lodash/isFunction');
+const config = require('./config');
+const resolve = require('./resolve');
 
-// TODO remove default param values
-module.exports = (existingConfig = {}, plugins = []) => {
+module.exports = (existingConfig = {}, cb) => {
+  const resolved = [];
+  const opts = config.build();
+
   if (!isObject(existingConfig)) {
     // TODO do we want to support promise based configs?
-    // throw new Error('Config needs to be an object');
+    throw new Error('Existing config must be an object');
   }
 
-  if (plugins && !isArray(plugins)) {
-    // TODO do we want to convert an object to an array if one is passed?
-    // throw new Error('Plugins needs to be an array');
+  if (opts.presets) {
+    if (!isArray(opts.presets)) {
+      throw new Error('Presets must be an array');
+    }
+
+    resolved.push(resolve.presets(opts.presets));
   }
 
-  // TODO parse .knapsackrc
-  // TODO parse package.json[knapsack]
-  // TODO generate plugins array
-  // TODO existingConfig checks
+  if (opts.plugins) {
+    if (!isArray(opts.plugins)) {
+      throw new Error('Plugins must be an array');
+    }
 
-  return flowRight(plugins)(existingConfig);
+    resolved.push(resolve.plugins(opts.plugins));
+  }
+
+  const out = flowRight(resolved)(existingConfig);
+
+  if (cb) {
+    if (!isFunction(cb)) {
+      throw new Error('Callback must be a function');
+    }
+
+    cb(out);
+  }
 };
