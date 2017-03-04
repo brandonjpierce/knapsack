@@ -8,16 +8,16 @@ const friendlyErrors = require('knapsack-plugin-friendly-errors');
 
 module.exports = opts => existing => {
   const plugins = flowRight([
-    defineEnv(get(opts, 'define-env')),
+    defineEnv(get(opts, 'env')),
     nodePackages(),
     noEmitErrors(),
     friendlyErrors()
   ])(existing);
 
   return merge.smart(plugins, {
-    target: 'web',
+    target: get(opts, 'target', 'web'),
     resolve: {
-      extensions: ['.js', '.json', '.jsx']
+      extensions: get(opts, 'extensions', ['.js', '.json', '.jsx'])
     },
     module: {
       rules: [

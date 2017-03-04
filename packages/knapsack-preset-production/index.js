@@ -15,7 +15,7 @@ module.exports = opts => existing => {
   ])(existing);
 
   return merge.smart(plugins, {
-    devtool: 'source-map',
+    devtool: get(opts, 'devtool', 'source-map'),
     cache: false,
     bail: true,
     // Utilize long-term caching by adding content hashes

@@ -9,13 +9,13 @@ const missingModules = require('knapsack-plugin-missing-modules');
 module.exports = opts => existing => {
   const plugins = flowRight([
     commonPreset(opts),
-    missingModules(get(opts, 'missing-modules')),
+    missingModules(get(opts, 'nodeModulesPath')),
     namedModules(),
     caseSensitive()
   ])(existing);
 
   return merge.smart(plugins, {
-    devtool: 'cheap-module-source-map',
+    devtool: get(opts, 'devtool', 'cheap-module-source-map'),
     bail: false,
     // In most cases this will be implicitly set to true but we set it
     // explicitly here just in case
