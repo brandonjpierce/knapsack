@@ -1,3 +1,11 @@
 {
-  "presets": ["production"]
+  "plugins": [
+    ["devtool", "eval"],
+    ["extensions", [".js"]],
+    ["node-packages", {
+      "foo": "empty",
+      "bar": "empty",
+      "fs": "notempty"
+    }]
+  ]
 }

@@ -14,7 +14,6 @@
     "knapsack-plugin-no-emit-errors": "^0.0.0",
     "knapsack-plugin-node-packages": "^0.0.0",
     "knapsack-plugin-case-sensitive": "^0.0.0",
-    "knapsack-plugin-missing-modules": "^0.0.0",
     "knapsack-plugin-named-modules": "^0.0.0",
     "knapsack-plugin-compression": "^0.0.0",
     "knapsack-plugin-hashed-modules": "^0.0.0",

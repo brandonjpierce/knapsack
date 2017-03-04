@@ -5,5 +5,8 @@
   "repository": "",
   "license": "MIT",
   "main": "index.js",
-  "xo": false
+  "xo": false,
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }

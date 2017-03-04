@@ -47,6 +47,9 @@ exports.plugins = plugins =>
       [pgn, options] = pgn;
     }
 
+    console.log('PLUGIN', pgn);
+    console.log('OPTIONS', options);
+
     const names = possiblePluginNames(pgn);
     const resolved = resolveFromNames(names);
     return resolved ? resolved(options) : resolved;
@@ -60,6 +63,9 @@ exports.presets = presets =>
     if (isArray(preset)) {
       [pre, options] = pre;
     }
+
+    console.log('PRESET', pre);
+    console.log('OPTIONS', options);
 
     const names = possiblePresetNames(pre);
     const resolved = resolveFromNames(names);
