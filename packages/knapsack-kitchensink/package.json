@@ -4,10 +4,11 @@
   "description": "",
   "repository": "",
   "license": "MIT",
-  "main": "index.js",
   "xo": false,
   "dependencies": {
     "knapsack-core": "^0.0.0",
+    "knapsack-plugin-extensions": "^0.0.0",
+    "knapsack-plugin-devtool": "^0.0.0",
     "knapsack-plugin-define-env": "^0.0.0",
     "knapsack-plugin-friendly-errors": "^0.0.0",
     "knapsack-plugin-no-emit-errors": "^0.0.0",
@@ -23,6 +24,14 @@
     "knapsack-preset-production": "^0.0.0"
   },
   "devDependencies": {
-    "pretty-format": "^19.0.0"
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "html-webpack-plugin": "^2.28.0",
+    "pretty-format": "^19.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
   }
 }

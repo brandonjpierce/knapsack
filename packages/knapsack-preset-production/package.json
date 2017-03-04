@@ -8,6 +8,7 @@
   "xo": false,
   "dependencies": {
     "knapsack-plugin-compression": "^0.0.0",
+    "knapsack-plugin-define-env": "^0.0.0",
     "knapsack-plugin-devtool": "^0.0.0",
     "knapsack-plugin-hashed-modules": "^0.0.0",
     "knapsack-plugin-uglify": "^0.0.0",

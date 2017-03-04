@@ -1,4 +1,3 @@
 {
-  "plugins": ["./knapsack-plugin-test"],
-  "presets": ["development"]
+  "presets": ["production"]
 }
