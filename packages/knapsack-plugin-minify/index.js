@@ -2,7 +2,6 @@
 
 const assign = require('lodash/assign');
 const webpack = require('webpack');
-const optimize = require('./optimize');
 
 const defaults = {
   minifier: 'uglify',
@@ -24,6 +23,7 @@ module.exports = opts => () => {
   ];
 
   if (config.optimize) {
+    const optimize = require('./optimize');
     plugins.push(optimize());
   }
 
