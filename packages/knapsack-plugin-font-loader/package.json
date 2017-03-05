@@ -1,0 +1,12 @@
+{
+  "name": "knapsack-plugin-font-loader",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "main": "index.js",
+  "xo": false,
+  "dependencies": {
+    "file-loader": "^0.10.1"
+  }
+}

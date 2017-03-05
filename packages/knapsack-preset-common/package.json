@@ -13,6 +13,7 @@
     "knapsack-plugin-friendly-errors": "^0.0.0",
     "knapsack-plugin-no-emit-errors": "^0.0.0",
     "knapsack-plugin-html-loader": "^0.0.0",
+    "knapsack-plugin-font-loader": "^0.0.0",
     "knapsack-plugin-node-packages": "^0.0.0",
     "lodash": "^4.17.4",
     "webpack-merge": "^3.0.0"
