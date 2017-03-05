@@ -5,11 +5,6 @@
   "repository": "",
   "license": "MIT",
   "xo": false,
-  "knapsack": {
-    "plugins": [
-      ["extensions", [".js"]]
-    ]
-  },
   "dependencies": {
     "knapsack-core": "^0.0.0",
     "knapsack-plugin-extensions": "^0.0.0",
@@ -22,7 +17,7 @@
     "knapsack-plugin-named-modules": "^0.0.0",
     "knapsack-plugin-compression": "^0.0.0",
     "knapsack-plugin-hashed-modules": "^0.0.0",
-    "knapsack-plugin-uglify": "^0.0.0",
+    "knapsack-plugin-minify": "^0.0.0",
     "knapsack-preset-common": "^0.0.0",
     "knapsack-preset-development": "^0.0.0",
     "knapsack-preset-production": "^0.0.0"
@@ -36,6 +31,7 @@
     "pretty-format": "^19.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }

@@ -1,9 +1,8 @@
 const get = require('lodash/get');
 const merge = require('webpack-merge');
 const reduce = require('lodash/reduce');
-const uglify = require('knapsack-plugin-uglify');
+const minify = require('knapsack-plugin-minify');
 const devtool = require('knapsack-plugin-devtool');
-const defineEnv = require('knapsack-plugin-env');
 const compression = require('knapsack-plugin-compression');
 const commonPreset = require('knapsack-preset-common');
 const hashedModules = require('knapsack-plugin-hashed-modules');
@@ -11,8 +10,7 @@ const hashedModules = require('knapsack-plugin-hashed-modules');
 module.exports = opts => existing => {
   const plugins = [
     commonPreset(opts),
-    defineEnv(get(opts, 'env', 'production')),
-    uglify(get(opts, 'uglify')),
+    minify(get(opts, 'minify')),
     compression(get(opts, 'compression')),
     devtool(get(opts, 'devtool', 'source-map')),
     hashedModules(),

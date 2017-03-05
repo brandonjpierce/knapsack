@@ -1,5 +1,5 @@
 {
-  "name": "knapsack-plugin-uglify",
+  "name": "knapsack-plugin-minify",
   "version": "0.0.0",
   "description": "",
   "repository": "",
@@ -10,6 +10,9 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "babili": "0.0.12",
+    "babili-webpack-plugin": "0.0.11",
+    "lodash": "^4.17.4",
+    "optimize-js-plugin": "0.0.4"
   }
 }
