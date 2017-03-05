@@ -1,8 +1,11 @@
-module.exports = () => () => ({
+module.exports = opts => () => ({
   module: {
     rules: [{
       test: /\.html$/,
-      use: ['html-loader?config=knapsackHtmlLoader']
+      use: [{
+        loader: 'html-loader',
+        options: opts
+      }]
     }]
   }
 });

@@ -2,7 +2,7 @@ const get = require('lodash/get');
 const merge = require('webpack-merge');
 const reduce = require('lodash/reduce');
 const devtool = require('knapsack-plugin-devtool');
-const defineEnv = require('knapsack-plugin-define-env');
+const defineEnv = require('knapsack-plugin-env');
 const extensions = require('knapsack-plugin-extensions');
 const htmlLoader = require('knapsack-plugin-html-loader');
 const fontLoader = require('knapsack-plugin-font-loader');
@@ -18,8 +18,8 @@ module.exports = opts => existing => {
     nodePackages(),
     noEmitErrors(),
     friendlyErrors(),
-    htmlLoader(),
-    fontLoader(),
+    htmlLoader(get(opts, 'htmlLoader')),
+    fontLoader(get(opts, 'fontLoader')),
     () => ({
       target: get(opts, 'target', 'web'),
       module: {

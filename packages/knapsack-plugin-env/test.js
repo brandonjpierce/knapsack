@@ -2,4 +2,4 @@
 
 const test = require('ava');
 
-test.todo('knapsack-plugin-define-env test');
+test.todo('knapsack-plugin-env test');
