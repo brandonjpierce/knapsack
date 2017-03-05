@@ -5,6 +5,11 @@
   "repository": "",
   "license": "MIT",
   "xo": false,
+  "knapsack": {
+    "plugins": [
+      ["extensions", [".js"]]
+    ]
+  },
   "dependencies": {
     "knapsack-core": "^0.0.0",
     "knapsack-plugin-extensions": "^0.0.0",

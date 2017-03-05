@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const get = require('lodash/get');
 const union = require('lodash/union');
-const merge = require('lodash/merge');
 const isArray = require('lodash/isArray');
 const mergeWith = require('lodash/mergeWith');
 
@@ -13,24 +12,30 @@ const KNAPSACKRC_FILENAME = '.knapsackrc';
 const exists = file => fs.existsSync(file);
 const read = file => fs.readFileSync(file, 'utf8');
 
-exports.build = (relative = cwd) => {
+const mergeConf = (source, obj) =>
+  mergeWith(source, obj, (objValue, srcValue) => {
+    if (isArray(objValue)) {
+      return union(objValue, srcValue);
+    }
+  });
+
+exports.build = (passed, relative = cwd) => {
   const config = {};
   const rc = path.join(relative, KNAPSACKRC_FILENAME);
   const pkg = path.join(relative, PACKAGE_FILENAME);
 
   if (exists(rc)) {
     const json = JSON.parse(read(rc));
-    merge(config, json);
+    mergeConf(config, json);
   }
 
   if (exists(pkg)) {
     const json = get(JSON.parse(read(pkg)), 'knapsack', {});
+    mergeConf(config, json);
+  }
 
-    mergeWith(config, json, (objValue, srcValue) => {
-      if (isArray(objValue)) {
-        return union(objValue, srcValue);
-      }
-    });
+  if (passed) {
+    mergeConf(config, passed);
   }
 
   return config;

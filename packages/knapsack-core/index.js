@@ -7,14 +7,11 @@ const isObject = require('lodash/isObject');
 const config = require('./config');
 const resolve = require('./resolve');
 
-// TODO add multi config argument support?
-// TODO brainstorm more possible plugins / presets
-
-module.exports = (existingConfig = {}) => {
+module.exports = (webpackConfig = {}, conf = {}) => {
   let resolved = [];
-  const opts = config.build();
+  const opts = config.build(conf);
 
-  if (!isObject(existingConfig)) {
+  if (!isObject(webpackConfig)) {
     // TODO do we want to support promise based configs?
     throw new Error('Existing config must be an object');
   }
@@ -39,8 +36,8 @@ module.exports = (existingConfig = {}) => {
   resolved = compact(resolved);
 
   const out = reduce(resolved, (acc, curr) =>
-    merge.smart(acc, curr(existingConfig)),
-    existingConfig
+    merge.smart(acc, curr(webpackConfig)),
+    webpackConfig
   );
 
   return out;
