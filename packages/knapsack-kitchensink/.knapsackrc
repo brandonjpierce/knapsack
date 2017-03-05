@@ -1,11 +1,12 @@
 {
   "plugins": [
     ["devtool", "eval"],
-    ["extensions", [".js"]],
+    ["extensions", [".js1"]],
     ["node-packages", {
       "foo": "empty",
       "bar": "empty",
-      "fs": "notempty"
+      "fs": false
     }]
-  ]
+  ],
+  "presets": ["production"]
 }

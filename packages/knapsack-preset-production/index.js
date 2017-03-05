@@ -17,11 +17,9 @@ module.exports = opts => existing => {
     devtool(get(opts, 'devtool', 'source-map')),
     hashedModules(),
     () => ({
+      watch: false,
       cache: false,
-      // We still want friendly errors to run
       bail: false,
-      // Utilize long-term caching by adding content hashes
-      // (not compilation hashes) to compiled assets
       output: {
         filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].chunk.js'

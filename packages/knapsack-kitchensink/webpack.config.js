@@ -25,6 +25,6 @@ const config = knapsack({
   }
 });
 
-// console.log(format(config));
+console.log(format(config));
 
 module.exports = config;

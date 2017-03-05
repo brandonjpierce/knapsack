@@ -15,11 +15,11 @@ module.exports = opts => existing => {
     defineEnv(get(opts, 'env')),
     devtool(get(opts, 'devtool')),
     extensions(get(opts, 'extensions')),
+    htmlLoader(get(opts, 'htmlLoader')),
+    fontLoader(get(opts, 'fontLoader')),
     nodePackages(),
     noEmitErrors(),
     friendlyErrors(),
-    htmlLoader(get(opts, 'htmlLoader')),
-    fontLoader(get(opts, 'fontLoader')),
     () => ({
       target: get(opts, 'target', 'web'),
       module: {
