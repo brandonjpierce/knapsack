@@ -4,6 +4,7 @@ const reduce = require('lodash/reduce');
 const devtool = require('knapsack-plugin-devtool');
 const defineEnv = require('knapsack-plugin-define-env');
 const extensions = require('knapsack-plugin-extensions');
+const htmlLoader = require('knapsack-plugin-html-loader');
 const nodePackages = require('knapsack-plugin-node-packages');
 const noEmitErrors = require('knapsack-plugin-no-emit-errors');
 const friendlyErrors = require('knapsack-plugin-friendly-errors');
