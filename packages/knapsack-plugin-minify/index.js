@@ -24,7 +24,7 @@ module.exports = opts => () => {
   ];
 
   if (config.optimize) {
-    plugins.push(optimize);
+    plugins.push(optimize());
   }
 
   return {plugins};
