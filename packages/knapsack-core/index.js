@@ -7,8 +7,37 @@ const isObject = require('lodash/isObject');
 const config = require('./config');
 const resolve = require('./resolve');
 
+const checkAndResolvePresets = opts => {
+  let out = [];
+
+  if (opts.presets) {
+    if (!isArray(opts.presets)) {
+      throw new Error('Presets must be an array');
+    }
+
+    out = resolve.presets(opts.presets);
+  }
+
+  return out;
+};
+
+const checkAndResolvePlugins = opts => {
+  let out = [];
+
+  if (opts.plugins) {
+    if (!isArray(opts.plugins)) {
+      throw new Error('Plugins must be an array');
+    }
+
+    out = resolve.plugins(opts.plugins);
+  }
+
+  return out;
+};
+
 module.exports = (webpackConfig = {}, conf = {}) => {
   let resolved = [];
+  const currentEnv = process.env.NODE_ENV || 'development';
   const opts = config.build(conf);
 
   if (!isObject(webpackConfig)) {
@@ -16,20 +45,14 @@ module.exports = (webpackConfig = {}, conf = {}) => {
     throw new Error('Existing config must be an object');
   }
 
-  if (opts.presets) {
-    if (!isArray(opts.presets)) {
-      throw new Error('Presets must be an array');
+  resolved = concat(resolved, checkAndResolvePresets(opts));
+  resolved = concat(resolved, checkAndResolvePlugins(opts));
+
+  if (opts.env) {
+    if (opts.env[currentEnv]) {
+      resolved = concat(resolved, checkAndResolvePresets(opts.env[currentEnv]));
+      resolved = concat(resolved, checkAndResolvePlugins(opts.env[currentEnv]));
     }
-
-    resolved = concat(resolved, resolve.presets(opts.presets));
-  }
-
-  if (opts.plugins) {
-    if (!isArray(opts.plugins)) {
-      throw new Error('Plugins must be an array');
-    }
-
-    resolved = concat(resolved, resolve.plugins(opts.plugins));
   }
 
   // Clean out unresolved packages

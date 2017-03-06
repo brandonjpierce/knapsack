@@ -1,3 +1,17 @@
 {
-  "presets": ["production"]
+  "env": {
+    "development": {
+      "presets": ["development"]
+    },
+    "production": {
+      "presets": [
+        ["production", {
+          "minify": {
+            "minifier": "babili",
+            "optimize": false
+          }
+        }]
+      ]
+    }
+  }
 }
