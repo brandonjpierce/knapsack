@@ -7,56 +7,32 @@ const isObject = require('lodash/isObject');
 const config = require('./config');
 const resolve = require('./resolve');
 
-const checkAndResolvePresets = opts => {
+const checkAndResolve = (opts, type) => {
   let out = [];
+  const resolver = resolve[type];
 
-  if (opts.presets) {
-    if (!isArray(opts.presets)) {
-      throw new Error('Presets must be an array');
+  if (opts[type]) {
+    if (!isArray(opts[type])) {
+      throw new Error(`${type} must be an array`);
     }
 
-    out = resolve.presets(opts.presets);
+    out = compact(resolver(opts[type]));
   }
 
   return out;
 };
 
-const checkAndResolvePlugins = opts => {
-  let out = [];
-
-  if (opts.plugins) {
-    if (!isArray(opts.plugins)) {
-      throw new Error('Plugins must be an array');
-    }
-
-    out = resolve.plugins(opts.plugins);
-  }
-
-  return out;
-};
-
-module.exports = (webpackConfig = {}, conf = {}) => {
+module.exports = (webpackConfig = {}) => {
   let resolved = [];
-  const currentEnv = process.env.NODE_ENV || 'development';
-  const opts = config.build(conf);
+  const opts = config.build();
 
   if (!isObject(webpackConfig)) {
     // TODO do we want to support promise based configs?
     throw new Error('Existing config must be an object');
   }
 
-  resolved = concat(resolved, checkAndResolvePresets(opts));
-  resolved = concat(resolved, checkAndResolvePlugins(opts));
-
-  if (opts.env) {
-    if (opts.env[currentEnv]) {
-      resolved = concat(resolved, checkAndResolvePresets(opts.env[currentEnv]));
-      resolved = concat(resolved, checkAndResolvePlugins(opts.env[currentEnv]));
-    }
-  }
-
-  // Clean out unresolved packages
-  resolved = compact(resolved);
+  resolved = concat(resolved, checkAndResolve(opts, 'presets'));
+  resolved = concat(resolved, checkAndResolve(opts, 'plugins'));
 
   const out = reduce(resolved, (acc, curr) =>
     merge.smart(acc, curr(webpackConfig)),
