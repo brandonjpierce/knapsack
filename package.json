@@ -16,7 +16,10 @@
     ]
   },
   "xo": {
-    "envs": ["node", "browser"],
+    "envs": [
+      "node",
+      "browser"
+    ],
     "space": true,
     "extends": "xo-react"
   },

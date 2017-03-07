@@ -8,6 +8,7 @@
   "xo": false,
   "dependencies": {
     "lodash": "^4.17.4",
-    "webpack-merge": "^3.0.0"
+    "webpack-merge": "^3.0.0",
+    "update-notifier": "^2.1.0"
   }
 }

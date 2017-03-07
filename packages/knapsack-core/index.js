@@ -4,6 +4,8 @@ const reduce = require('lodash/reduce');
 const compact = require('lodash/compact');
 const isArray = require('lodash/isArray');
 const isObject = require('lodash/isObject');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
 const config = require('./config');
 const resolve = require('./resolve');
 
@@ -25,6 +27,8 @@ const checkAndResolve = (opts, type) => {
 module.exports = (webpackConfig = {}) => {
   let resolved = [];
   const opts = config.build();
+
+  updateNotifier({pkg}).notify();
 
   if (!isObject(webpackConfig)) {
     // TODO do we want to support promise based configs?
